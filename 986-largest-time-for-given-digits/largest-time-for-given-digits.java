@@ -2,8 +2,14 @@ class Solution {
     private int a = -1, b = -1;
     public String largestTimeFromDigits(int[] arr) {
         permute(arr, 0, 3);
-        String s = (a <= 9 ? "0" + a : a + "") + ":" + (b <= 9 ? "0" + b : b + "");
-        return a < 0 ? "" : s;
+        StringBuilder sb = new StringBuilder();
+        if(a <= 9) sb.append("0");
+        sb.append(a);
+        sb.append(":");
+        if(b <= 9) sb.append("0");
+        sb.append(b);
+
+        return a < 0 ? "" : sb.toString();
     }
 
     private void permute(int[] arr, int l, int r) {
