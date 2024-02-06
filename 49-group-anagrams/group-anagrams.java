@@ -16,9 +16,12 @@ class Solution {
                 map.put(s, l);
             }
         }
-        
+
         List<List<String>> list = new ArrayList<>();
-        list.addAll(map.values());
+        for(List<String> l : map.values()){
+            list.add(l);
+        }
+        
         return list;
     }
 }
