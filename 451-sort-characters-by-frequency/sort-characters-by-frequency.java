@@ -1,7 +1,10 @@
 class Solution {
     public String frequencySort(String s) {
-        int[] arr = new int[128];
-        for(char c : s.toCharArray()) arr[c]++;
+        int[] arr = new int[62];
+        for(char c : s.toCharArray()) {
+            int k = helper(c);
+            if(k != -1) arr[k]++;
+        }
 
         StringBuilder sb = new StringBuilder();
 
@@ -9,7 +12,7 @@ class Solution {
             int max = 0;
             int ind = -1;
 
-            for(int j = 0; j < 128; j++){
+            for(int j = 0; j < 62; j++){
                 if(arr[j] > max) {
                     max = arr[j];
                     ind = j;
@@ -18,8 +21,10 @@ class Solution {
 
             if(ind == -1) break;
 
+            char k = toChar(ind);
+
             while(max > 0){
-                sb.append((char)ind);
+                sb.append(k);
                 max--;
             }
 
@@ -27,5 +32,25 @@ class Solution {
         }
 
         return sb.toString();
+    }
+
+    private int helper(char c){
+        if(c >= 'a' && c <= 'z'){
+            return c - 'a';
+        } else if(c >= 'A' && c <= 'Z'){
+            return c - 'A' + 26;
+        } else if(c >= '0' && c <= '9'){
+            return c - '0' + 52;
+        }
+
+        return -1;
+    }
+
+    private char toChar(int i){
+        if(i >= 0 && i <= 25){
+            return (char) (i + 97);
+        } else if(i >= 26 && i <= 51){
+            return (char) (i + 39);
+        } else return (char) (i - 4);
     }
 }
