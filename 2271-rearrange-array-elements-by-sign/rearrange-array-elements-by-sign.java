@@ -1,14 +1,14 @@
 class Solution {
     public int[] rearrangeArray(int[] nums) {
-        int positive = 0, negitive = 1, i = 0, n = nums.length;
-        int[] arr = new int[n];
+        int positive = 0, negitive = 1;
+        int[] arr = new int[nums.length];
 
-        for(int k : nums){
-            if(k > 0){
-                arr[positive] = k;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] > 0){
+                arr[positive] = nums[i];
                 positive += 2;
             } else {
-                arr[negitive] = k;
+                arr[negitive] = nums[i];
                 negitive += 2;
             }
         }
