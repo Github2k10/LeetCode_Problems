@@ -1,10 +1,9 @@
 class Solution {
     public long largestPerimeter(int[] nums) {
-        long largest = -1;
         Arrays.sort(nums);
-        long sum = nums[0] + nums[1];
+        long sum = 0, largest = -1;
 
-        for(int i = 2; i < nums.length; i++){
+        for(int i = 0; i < nums.length; i++){
             if(sum > nums[i]) largest = sum + nums[i];
             sum += nums[i];
         }
