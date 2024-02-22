@@ -6,7 +6,6 @@ class Solution {
             int x = a & 1;
             int y = b & 1;
             int z = c & 1;
-            System.out.println(x + " : " + y + " : " + z);
 
             a = a >> 1;
             b = b >> 1;
