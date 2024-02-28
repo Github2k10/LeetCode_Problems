@@ -14,18 +14,19 @@
  * }
  */
 class Solution {
-    private List<List<Integer>> list;
+    private int ans = 0, depth = -1;
 
     public int findBottomLeftValue(TreeNode root) {
-        list = new ArrayList<>();
         helper(root, 0);
-        return list.get(list.size() - 1).get(0);    
+        return ans;
     }
 
     private void helper(TreeNode root, int level){
         if(root == null) return;
-        if(list.size() == level) list.add(new ArrayList<>());
-        list.get(level).add(root.val);
+        if(level > depth){
+            depth = level;
+            ans = root.val;
+        }
 
         helper(root.left, level + 1);
         helper(root.right, level + 1);
