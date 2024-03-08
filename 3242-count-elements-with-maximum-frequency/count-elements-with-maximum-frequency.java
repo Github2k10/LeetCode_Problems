@@ -3,16 +3,11 @@ class Solution {
         int[] arr = new int[101];
 
         for(int i : nums) arr[i]++;
-        Arrays.sort(arr);
 
-        int c = 0, i = arr.length - 1;
-        int k = arr[i];
+        int max = 0, c = 0;
 
-        while(i >= 0){
-            if(arr[i] == k) c += k;
-            else break;
-            i--;
-        }
+        for(int i : arr) if(i > max) max = i;
+        for(int i : arr) if(max == i) c += i;
 
         return c;
     }
