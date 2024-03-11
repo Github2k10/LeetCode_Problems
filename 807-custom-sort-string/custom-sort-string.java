@@ -1,25 +1,20 @@
 class Solution {
     public String customSortString(String order, String s) {
-        Map<Character, Integer> map = new HashMap<>();
+        int[] arr = new int[26];
         for(char c : s.toCharArray()){
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            arr[c - 'a']++;
         }
 
         StringBuilder sb = new StringBuilder();
         for(char c : order.toCharArray()){
-            if(!map.containsKey(c)) break;
-            int k = map.get(c);
-            map.put(c, 0);
-
-            while(k-- > 0) sb.append(c + "");
+            if(arr[c - 'a'] == 0) break;
+            while(arr[c - 'a']-- > 0) sb.append(c + "");
         }
 
-        for(Map.Entry<Character, Integer> m : map.entrySet()){
-            int k = m.getValue();
-
-            if(k > 0){
-                char c = m.getKey();
-                while(k-- > 0) sb.append(c + "");
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > 0){
+                char c = (char)('a' + i);
+                while(arr[i]-- > 0) sb.append(c + "");
             }
         }
 
