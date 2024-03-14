@@ -6,9 +6,9 @@ class Solution {
         int sum = 0, c = 0;
 
         while(i < nums.length){
-            sum += nums[i];
+            sum += nums[i] % 2;
             while(sum > k && j < nums.length){
-                sum -= nums[j];
+                sum -= nums[j] % 2;
                 j++;
             }
 
@@ -20,11 +20,6 @@ class Solution {
     }
     public int numberOfSubarrays(int[] nums, int k) {
         int c = 0;
-
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i]  % 2 == 0) nums[i] = 0;
-            else nums[i] = 1;
-        }
 
         int a = helper(nums, k);
         int b = helper(nums, k - 1);
