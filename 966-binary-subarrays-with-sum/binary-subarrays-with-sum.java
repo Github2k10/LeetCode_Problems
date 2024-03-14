@@ -6,10 +6,7 @@ class Solution {
 
         for(int i : nums){
             sum += i;
-            if(map.containsKey(sum - goal)){
-                c += map.get(sum - goal);
-            }
-
+            c += map.getOrDefault(sum - goal, 0);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
 
