@@ -9,8 +9,10 @@
  * }
  */
 class Solution {
+    private static ListNode[] temp = new ListNode[50000];
     public void reorderList(ListNode head) {
-        ListNode[] arr = new ListNode[50000];
+        ListNode[] arr = temp;
+        
         int j = 0;
         ListNode cur = head;
 
