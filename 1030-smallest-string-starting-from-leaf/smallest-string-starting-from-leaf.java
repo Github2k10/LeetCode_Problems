@@ -26,8 +26,8 @@ class Solution {
         if(root == null) return;
 
         if(root.left == null && root.right == null){
-            sb.append((char)('a' + root.val));
-            String st = sb.reverse().toString();
+           sb.insert(0,(char)(root.val+97));
+            String st = sb.toString();
             
             if(st.compareTo(ans) < 0){
                 ans = st;
@@ -35,7 +35,7 @@ class Solution {
             return;
         }
 
-        sb.append((char)('a' + root.val));
+        sb.insert(0,(char)(root.val+97));
 
         helper(root.left, new StringBuilder(sb));
         helper(root.right, new StringBuilder(sb));
