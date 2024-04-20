@@ -18,9 +18,9 @@ var findFarmland = function(land) {
         land[i][j] = 0;
 
         helper(i + 1, j, arr);
-        helper(i - 1, j, arr);
+        // helper(i - 1, j, arr);
         helper(i, j + 1, arr);
-        helper(i, j - 1, arr);
+        // helper(i, j - 1, arr);
     }
 
     for(let i = 0; i < n; i++){
