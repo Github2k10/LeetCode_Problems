@@ -10,10 +10,8 @@ var findFarmland = function(land) {
         if(i < 0 || j < 0 || i >= n || j >= m) return;
         if(land[i][j] == 0) return;
 
-        if(land[i][j] == 1){
-            if(i > arr[2]) arr[2] = i;
-            if(j > arr[3]) arr[3] = j;
-        }
+        if(i > arr[2]) arr[2] = i;
+        if(j > arr[3]) arr[3] = j;
 
         land[i][j] = 0;
 
