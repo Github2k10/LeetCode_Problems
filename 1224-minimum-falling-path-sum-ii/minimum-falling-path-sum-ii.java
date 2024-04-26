@@ -6,7 +6,6 @@ class Solution {
         dp = new int[n][n];
 
         for(int i = 0; i < n; i++) dp[0][i] = grid[0][i];
-        for(int i = 1; i < n; i++) Arrays.fill(dp[i], -1);
 
         helper(1, n, grid);
 
