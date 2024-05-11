@@ -6,6 +6,7 @@ class Solution {
         Arrays.sort(happiness);
 
         while(t < k){
+            if(happiness[n - t] - t < 0) break;
             ans += happiness[n - t] - t >= 0 ? happiness[n - t] - t : 0;
             t++;
         }
