@@ -7,7 +7,7 @@ class Solution {
 
         while(t < k){
             if(happiness[n - t] - t < 0) break;
-            ans += happiness[n - t] - t >= 0 ? happiness[n - t] - t : 0;
+            ans += Math.max(happiness[n - t] - t, 0);
             t++;
         }
 
