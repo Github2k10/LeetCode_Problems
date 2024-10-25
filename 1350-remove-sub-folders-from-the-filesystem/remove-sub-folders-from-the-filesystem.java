@@ -8,10 +8,11 @@ class Solution {
         while(i < n) {
             String s = folder[i];
             list.add(s);
+            s += '/';
 
             int j = i + 1;
 
-            while(j < n && folder[j].indexOf(s + '/') == 0) {
+            while(j < n && folder[j].indexOf(s) == 0) {
                 j++;
             }   
 
