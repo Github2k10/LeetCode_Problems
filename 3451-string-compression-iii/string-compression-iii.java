@@ -1,8 +1,7 @@
 class Solution {
     public String compressedString(String word) {
         int count = 1;
-        List<String> list = new ArrayList<>();
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         for(int i = 0; i < word.length() - 1; i++){
             char c = word.charAt(i);
@@ -11,21 +10,22 @@ class Solution {
                 count++;
                 continue;
             } else {
-                list.add(String.valueOf(count));
-                list.add(String.valueOf(c));
+                str.append(count);
+                str.append(c);
+
                 // str += count;
                 // str += c;
+                
                 count = 1;
             }
         }
 
+        str.append(count);
+        str.append(word.charAt(word.length() - 1));
+
         // str += count;
         // str += word.charAt(word.length() - 1);
 
-        list.add(String.valueOf(count));
-        list.add(String.valueOf(word.charAt(word.length() - 1)));
-        // list.add(word.charAt(word.length() - 1));
-
-        return list.stream().map(Object::toString).collect(Collectors.joining(""));
+        return str.toString();
     }
 }
