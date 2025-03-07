@@ -18,7 +18,6 @@ class Solution {
         }
 
         int[] res = {-1, -1};
-        Collections.sort(list);
 
         int min = Integer.MAX_VALUE;
         for (int i = 1; i < list.size(); i++) {
