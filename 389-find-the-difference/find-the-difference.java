@@ -1,23 +1,15 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        int[] arr = new int[26];
+        char result = 0;
 
-        for(char c : t.toCharArray()){
-            arr[c - 'a']++;
+        for(char ch : s.toCharArray()){
+            result ^= ch;
         }
 
-        for(char c : s.toCharArray()){
-            arr[c - 'a']--;
+        for(char ch : t.toCharArray()){
+            result ^= ch;
         }
 
-        char ch = 'a';
-
-        for(int i = 0; i < 26; i++){
-            if(arr[i] == 1){
-                ch = (char)(i + 'a');
-            }
-        }
-
-        return ch;
+        return result;
     }
 }
